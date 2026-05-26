@@ -4,53 +4,21 @@ package orb
 type MultiPoint []Point
 
 // GeoJSONType returns the GeoJSON type for the object.
-func (mp MultiPoint) GeoJSONType() string {
-	return "MultiPoint"
-}
+func (mp MultiPoint) GeoJSONType() string { _ = "STUB: not implemented"; return "" }
 
 // Dimensions returns 0 because a MultiPoint is a 0d object.
 func (mp MultiPoint) Dimensions() int {
+	_ = "STUB: not implemented"
+
+	// Clone returns a new copy of the points.
 	return 0
 }
 
-// Clone returns a new copy of the points.
-func (mp MultiPoint) Clone() MultiPoint {
-	if mp == nil {
-		return nil
-	}
-
-	points := make([]Point, len(mp))
-	copy(points, mp)
-
-	return MultiPoint(points)
-}
+func (mp MultiPoint) Clone() MultiPoint { _ = "STUB: not implemented"; return *new(MultiPoint) }
 
 // Bound returns a bound around the points. Uses rectangular coordinates.
-func (mp MultiPoint) Bound() Bound {
-	if len(mp) == 0 {
-		return emptyBound
-	}
-
-	b := Bound{mp[0], mp[0]}
-	for _, p := range mp {
-		b = b.Extend(p)
-	}
-
-	return b
-}
+func (mp MultiPoint) Bound() Bound { _ = "STUB: not implemented"; return *new(Bound) }
 
 // Equal compares two MultiPoint objects. Returns true if lengths are the same
 // and all points are Equal, and in the same order.
-func (mp MultiPoint) Equal(multiPoint MultiPoint) bool {
-	if len(mp) != len(multiPoint) {
-		return false
-	}
-
-	for i := range mp {
-		if !mp[i].Equal(multiPoint[i]) {
-			return false
-		}
-	}
-
-	return true
-}
+func (mp MultiPoint) Equal(multiPoint MultiPoint) bool { _ = "STUB: not implemented"; return false }

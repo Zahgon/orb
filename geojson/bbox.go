@@ -7,32 +7,10 @@ import "github.com/paulmach/orb"
 type BBox []float64
 
 // NewBBox creates a bbox from a a bound.
-func NewBBox(b orb.Bound) BBox {
-	return []float64{
-		b.Min[0], b.Min[1],
-		b.Max[0], b.Max[1],
-	}
-}
+func NewBBox(b orb.Bound) BBox { _ = "STUB: not implemented"; return *new(BBox) }
 
 // Valid checks if the bbox is present and has at least 4 elements.
-func (bb BBox) Valid() bool {
-	if bb == nil {
-		return false
-	}
-
-	return len(bb) >= 4 && len(bb)%2 == 0
-}
+func (bb BBox) Valid() bool { _ = "STUB: not implemented"; return false }
 
 // Bound returns the orb.Bound for the BBox.
-func (bb BBox) Bound() orb.Bound {
-	if !bb.Valid() {
-		return orb.Bound{}
-	}
-
-	mid := len(bb) / 2
-
-	return orb.Bound{
-		Min: orb.Point{bb[0], bb[1]},
-		Max: orb.Point{bb[mid], bb[mid+1]},
-	}
-}
+func (bb BBox) Bound() orb.Bound { _ = "STUB: not implemented"; return *new(orb.Bound) }

@@ -1,9 +1,5 @@
 package orb
 
-import (
-	"math"
-)
-
 var emptyBound = Bound{Min: Point{1, 1}, Max: Point{-1, -1}}
 
 // A Bound represents a closed box or rectangle.
@@ -16,158 +12,97 @@ type Bound struct {
 
 // GeoJSONType returns the GeoJSON type for the object.
 func (b Bound) GeoJSONType() string {
-	return "Polygon"
+	_ = "STUB: not implemented"
+
+	// Dimensions returns 2 because a Bound is a 2d object.
+	return ""
 }
 
-// Dimensions returns 2 because a Bound is a 2d object.
 func (b Bound) Dimensions() int {
-	return 2
+	_ = "STUB: not implemented"
+
+	// ToPolygon converts the bound into a Polygon object.
+	return 0
 }
 
-// ToPolygon converts the bound into a Polygon object.
-func (b Bound) ToPolygon() Polygon {
-	return Polygon{b.ToRing()}
-}
+func (b Bound) ToPolygon() Polygon { _ = "STUB: not implemented"; return *new(Polygon) }
 
 // ToRing converts the bound into a loop defined
 // by the boundary of the box.
-func (b Bound) ToRing() Ring {
-	return Ring{
-		b.Min,
-		Point{b.Max[0], b.Min[1]},
-		b.Max,
-		Point{b.Min[0], b.Max[1]},
-		b.Min,
-	}
-}
+func (b Bound) ToRing() Ring { _ = "STUB: not implemented"; return *new(Ring) }
 
 // Extend grows the bound to include the new point.
 func (b Bound) Extend(point Point) Bound {
+	_ = "STUB: not implemented"
 	// already included, no big deal
-	if b.Contains(point) {
-		return b
-	}
-
-	return Bound{
-		Min: Point{
-			math.Min(b.Min[0], point[0]),
-			math.Min(b.Min[1], point[1]),
-		},
-		Max: Point{
-			math.Max(b.Max[0], point[0]),
-			math.Max(b.Max[1], point[1]),
-		},
-	}
+	return *new(Bound)
 }
 
 // Union extends this bound to contain the union of this and the given bound.
-func (b Bound) Union(other Bound) Bound {
-	if other.IsEmpty() {
-		return b
-	}
-
-	b = b.Extend(other.Min)
-	b = b.Extend(other.Max)
-	b = b.Extend(other.LeftTop())
-	b = b.Extend(other.RightBottom())
-
-	return b
-}
+func (b Bound) Union(other Bound) Bound { _ = "STUB: not implemented"; return *new(Bound) }
 
 // Contains determines if the point is within the bound.
 // Points on the boundary are considered within.
-func (b Bound) Contains(point Point) bool {
-	if point[1] < b.Min[1] || b.Max[1] < point[1] {
-		return false
-	}
-
-	if point[0] < b.Min[0] || b.Max[0] < point[0] {
-		return false
-	}
-
-	return true
-}
+func (b Bound) Contains(point Point) bool { _ = "STUB: not implemented"; return false }
 
 // Intersects determines if two bounds intersect.
 // Returns true if they are touching.
-func (b Bound) Intersects(bound Bound) bool {
-	if (b.Max[0] < bound.Min[0]) ||
-		(b.Min[0] > bound.Max[0]) ||
-		(b.Max[1] < bound.Min[1]) ||
-		(b.Min[1] > bound.Max[1]) {
-		return false
-	}
-
-	return true
-}
+func (b Bound) Intersects(bound Bound) bool { _ = "STUB: not implemented"; return false }
 
 // Pad extends the bound in all directions by the given value.
-func (b Bound) Pad(d float64) Bound {
-	b.Min[0] -= d
-	b.Min[1] -= d
-
-	b.Max[0] += d
-	b.Max[1] += d
-
-	return b
-}
+func (b Bound) Pad(d float64) Bound { _ = "STUB: not implemented"; return *new(Bound) }
 
 // Center returns the center of the bounds by "averaging" the x and y coords.
-func (b Bound) Center() Point {
-	return Point{
-		(b.Min[0] + b.Max[0]) / 2.0,
-		(b.Min[1] + b.Max[1]) / 2.0,
-	}
-}
+func (b Bound) Center() Point { _ = "STUB: not implemented"; return *new(Point) }
 
 // Top returns the top of the bound.
 func (b Bound) Top() float64 {
-	return b.Max[1]
+	_ = "STUB: not implemented"
+
+	// Bottom returns the bottom of the bound.
+	return 0
 }
 
-// Bottom returns the bottom of the bound.
 func (b Bound) Bottom() float64 {
-	return b.Min[1]
+	_ = "STUB: not implemented"
+
+	// Right returns the right of the bound.
+	return 0
 }
 
-// Right returns the right of the bound.
 func (b Bound) Right() float64 {
-	return b.Max[0]
+	_ = "STUB: not implemented"
+
+	// Left returns the left of the bound.
+	return 0
 }
 
-// Left returns the left of the bound.
 func (b Bound) Left() float64 {
-	return b.Min[0]
+	_ = "STUB: not implemented"
+
+	// LeftTop returns the upper left point of the bound.
+	return 0
 }
 
-// LeftTop returns the upper left point of the bound.
-func (b Bound) LeftTop() Point {
-	return Point{b.Left(), b.Top()}
-}
+func (b Bound) LeftTop() Point { _ = "STUB: not implemented"; return *new(Point) }
 
 // RightBottom return the lower right point of the bound.
-func (b Bound) RightBottom() Point {
-	return Point{b.Right(), b.Bottom()}
-}
+func (b Bound) RightBottom() Point { _ = "STUB: not implemented"; return *new(Point) }
 
 // IsEmpty returns true if it contains zero area or if
 // it's in some malformed negative state where the left point is larger than the right.
 // This can be caused by padding too much negative.
-func (b Bound) IsEmpty() bool {
-	return b.Min[0] > b.Max[0] || b.Min[1] > b.Max[1]
-}
+func (b Bound) IsEmpty() bool { _ = "STUB: not implemented"; return false }
 
 // IsZero return true if the bound includes just null island.
-func (b Bound) IsZero() bool {
-	return b.Max == Point{} && b.Min == Point{}
-}
+func (b Bound) IsZero() bool { _ = "STUB: not implemented"; return false }
 
 // Bound returns the same bound.
 func (b Bound) Bound() Bound {
-	return b
+	_ = "STUB: not implemented"
+
+	// Equal returns if two bounds are equal.
+	return *new(Bound)
 }
 
-// Equal returns if two bounds are equal.
-func (b Bound) Equal(c Bound) bool {
-	return b.Min == c.Min && b.Max == c.Max
-}
+func (b Bound) Equal(c Bound) bool { _ = "STUB: not implemented"; return false }

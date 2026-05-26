@@ -8,115 +8,38 @@ type simplifier interface {
 }
 
 func simplify(s simplifier, geom orb.Geometry) orb.Geometry {
-	if geom == nil {
-		return nil
-	}
-
-	switch g := geom.(type) {
-	case orb.Point:
-		return g
-	case orb.MultiPoint:
-		if g == nil {
-			return nil
-		}
-		return g
-	case orb.LineString:
-		g = lineString(s, g)
-		if len(g) == 0 {
-			return nil
-		}
-		return g
-	case orb.MultiLineString:
-		g = multiLineString(s, g)
-		if len(g) == 0 {
-			return nil
-		}
-		return g
-	case orb.Ring:
-		g = ring(s, g)
-		if len(g) == 0 {
-			return nil
-		}
-		return g
-	case orb.Polygon:
-		g = polygon(s, g)
-		if len(g) == 0 {
-			return nil
-		}
-		return g
-	case orb.MultiPolygon:
-		g = multiPolygon(s, g)
-		if len(g) == 0 {
-			return nil
-		}
-		return g
-	case orb.Collection:
-		g = collection(s, g)
-		if len(g) == 0 {
-			return nil
-		}
-		return g
-	case orb.Bound:
-		return g
-	}
-
-	panic("unsupported type")
+	_ = "STUB: not implemented"
+	return *new(orb.Geometry)
 }
 
 func lineString(s simplifier, ls orb.LineString) orb.LineString {
-	return runSimplify(s, ls, false)
+	_ = "STUB: not implemented"
+	return *new(orb.LineString)
 }
 
 func multiLineString(s simplifier, mls orb.MultiLineString) orb.MultiLineString {
-	for i := range mls {
-		mls[i] = runSimplify(s, mls[i], false)
-	}
-	return mls
+	_ = "STUB: not implemented"
+	return *new(orb.MultiLineString)
 }
 
-func ring(s simplifier, r orb.Ring) orb.Ring {
-	return orb.Ring(runSimplify(s, orb.LineString(r), true))
-}
+func ring(s simplifier, r orb.Ring) orb.Ring { _ = "STUB: not implemented"; return *new(orb.Ring) }
 
 func polygon(s simplifier, p orb.Polygon) orb.Polygon {
-	count := 0
-	for i := range p {
-		r := orb.Ring(runSimplify(s, orb.LineString(p[i]), true))
-		if i != 0 && len(r) <= 2 {
-			continue
-		}
-
-		p[count] = r
-		count++
-	}
-	return p[:count]
+	_ = "STUB: not implemented"
+	return *new(orb.Polygon)
 }
 
 func multiPolygon(s simplifier, mp orb.MultiPolygon) orb.MultiPolygon {
-	count := 0
-	for i := range mp {
-		p := polygon(s, mp[i])
-		if len(p[0]) <= 2 {
-			continue
-		}
-
-		mp[count] = p
-		count++
-	}
-	return mp[:count]
+	_ = "STUB: not implemented"
+	return *new(orb.MultiPolygon)
 }
 
 func collection(s simplifier, c orb.Collection) orb.Collection {
-	for i := range c {
-		c[i] = simplify(s, c[i])
-	}
-	return c
+	_ = "STUB: not implemented"
+	return *new(orb.Collection)
 }
 
 func runSimplify(s simplifier, ls orb.LineString, area bool) orb.LineString {
-	if len(ls) <= 2 {
-		return ls
-	}
-	ls, _ = s.simplify(ls, area, false)
-	return ls
+	_ = "STUB: not implemented"
+	return *new(orb.LineString)
 }

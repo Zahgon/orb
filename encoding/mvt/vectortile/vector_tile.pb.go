@@ -4,13 +4,10 @@
 package vectortile
 
 import (
-	encoding_binary "encoding/binary"
 	fmt "fmt"
-	github_com_gogo_protobuf_proto "github.com/gogo/protobuf/proto"
-	proto "github.com/gogo/protobuf/proto"
-	io "io"
 	math "math"
-	math_bits "math/bits"
+
+	proto "github.com/gogo/protobuf/proto"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -47,28 +44,13 @@ var Tile_GeomType_value = map[string]int32{
 	"POLYGON":    3,
 }
 
-func (x Tile_GeomType) Enum() *Tile_GeomType {
-	p := new(Tile_GeomType)
-	*p = x
-	return p
-}
+func (x Tile_GeomType) Enum() *Tile_GeomType { _ = "STUB: not implemented"; return nil }
 
-func (x Tile_GeomType) String() string {
-	return proto.EnumName(Tile_GeomType_name, int32(x))
-}
+func (x Tile_GeomType) String() string { _ = "STUB: not implemented"; return "" }
 
-func (x *Tile_GeomType) UnmarshalJSON(data []byte) error {
-	value, err := proto.UnmarshalJSONEnum(Tile_GeomType_value, data, "Tile_GeomType")
-	if err != nil {
-		return err
-	}
-	*x = Tile_GeomType(value)
-	return nil
-}
+func (x *Tile_GeomType) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }
 
-func (Tile_GeomType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_ca433dd0d9fb7008, []int{0, 0}
-}
+func (Tile_GeomType) EnumDescriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
 type Tile struct {
 	Layers                       []*Tile_Layer `protobuf:"bytes,3,rep,name=layers" json:"layers,omitempty"`
@@ -78,54 +60,33 @@ type Tile struct {
 	XXX_sizecache                int32  `json:"-"`
 }
 
-func (m *Tile) Reset()         { *m = Tile{} }
-func (m *Tile) String() string { return proto.CompactTextString(m) }
-func (*Tile) ProtoMessage()    {}
-func (*Tile) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ca433dd0d9fb7008, []int{0}
-}
+func (m *Tile) Reset()                    { _ = "STUB: not implemented"; return }
+func (m *Tile) String() string            { _ = "STUB: not implemented"; return "" }
+func (*Tile) ProtoMessage()               { _ = "STUB: not implemented"; return }
+func (*Tile) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
 var extRange_Tile = []proto.ExtensionRange{
 	{Start: 16, End: 8191},
 }
 
-func (*Tile) ExtensionRangeArray() []proto.ExtensionRange {
-	return extRange_Tile
+func (*Tile) ExtensionRangeArray() []proto.ExtensionRange { _ = "STUB: not implemented"; return nil }
+
+func (m *Tile) XXX_Unmarshal(b []byte) error { _ = "STUB: not implemented"; return nil }
+
+func (m *Tile) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
-func (m *Tile) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *Tile) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_Tile.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *Tile) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Tile.Merge(m, src)
-}
-func (m *Tile) XXX_Size() int {
-	return m.Size()
-}
-func (m *Tile) XXX_DiscardUnknown() {
-	xxx_messageInfo_Tile.DiscardUnknown(m)
-}
+func (m *Tile) XXX_Merge(src proto.Message) { _ = "STUB: not implemented"; return }
+
+func (m *Tile) XXX_Size() int { _ = "STUB: not implemented"; return 0 }
+
+func (m *Tile) XXX_DiscardUnknown() { _ = "STUB: not implemented"; return }
 
 var xxx_messageInfo_Tile proto.InternalMessageInfo
 
-func (m *Tile) GetLayers() []*Tile_Layer {
-	if m != nil {
-		return m.Layers
-	}
-	return nil
-}
+func (m *Tile) GetLayers() []*Tile_Layer { _ = "STUB: not implemented"; return nil }
 
 // Variant type encoding
 type Tile_Value struct {
@@ -143,96 +104,48 @@ type Tile_Value struct {
 	XXX_sizecache                int32  `json:"-"`
 }
 
-func (m *Tile_Value) Reset()         { *m = Tile_Value{} }
-func (m *Tile_Value) String() string { return proto.CompactTextString(m) }
-func (*Tile_Value) ProtoMessage()    {}
-func (*Tile_Value) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ca433dd0d9fb7008, []int{0, 0}
-}
+func (m *Tile_Value) Reset()                    { _ = "STUB: not implemented"; return }
+func (m *Tile_Value) String() string            { _ = "STUB: not implemented"; return "" }
+func (*Tile_Value) ProtoMessage()               { _ = "STUB: not implemented"; return }
+func (*Tile_Value) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
 var extRange_Tile_Value = []proto.ExtensionRange{
 	{Start: 8, End: 536870911},
 }
 
 func (*Tile_Value) ExtensionRangeArray() []proto.ExtensionRange {
-	return extRange_Tile_Value
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func (m *Tile_Value) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
+func (m *Tile_Value) XXX_Unmarshal(b []byte) error { _ = "STUB: not implemented"; return nil }
+
 func (m *Tile_Value) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_Tile_Value.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
+	_ = "STUB: not implemented"
+	return nil, nil
 }
-func (m *Tile_Value) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Tile_Value.Merge(m, src)
-}
-func (m *Tile_Value) XXX_Size() int {
-	return m.Size()
-}
-func (m *Tile_Value) XXX_DiscardUnknown() {
-	xxx_messageInfo_Tile_Value.DiscardUnknown(m)
-}
+
+func (m *Tile_Value) XXX_Merge(src proto.Message) { _ = "STUB: not implemented"; return }
+
+func (m *Tile_Value) XXX_Size() int { _ = "STUB: not implemented"; return 0 }
+
+func (m *Tile_Value) XXX_DiscardUnknown() { _ = "STUB: not implemented"; return }
 
 var xxx_messageInfo_Tile_Value proto.InternalMessageInfo
 
-func (m *Tile_Value) GetStringValue() string {
-	if m != nil && m.StringValue != nil {
-		return *m.StringValue
-	}
-	return ""
-}
+func (m *Tile_Value) GetStringValue() string { _ = "STUB: not implemented"; return "" }
 
-func (m *Tile_Value) GetFloatValue() float32 {
-	if m != nil && m.FloatValue != nil {
-		return *m.FloatValue
-	}
-	return 0
-}
+func (m *Tile_Value) GetFloatValue() float32 { _ = "STUB: not implemented"; return 0 }
 
-func (m *Tile_Value) GetDoubleValue() float64 {
-	if m != nil && m.DoubleValue != nil {
-		return *m.DoubleValue
-	}
-	return 0
-}
+func (m *Tile_Value) GetDoubleValue() float64 { _ = "STUB: not implemented"; return 0 }
 
-func (m *Tile_Value) GetIntValue() int64 {
-	if m != nil && m.IntValue != nil {
-		return *m.IntValue
-	}
-	return 0
-}
+func (m *Tile_Value) GetIntValue() int64 { _ = "STUB: not implemented"; return 0 }
 
-func (m *Tile_Value) GetUintValue() uint64 {
-	if m != nil && m.UintValue != nil {
-		return *m.UintValue
-	}
-	return 0
-}
+func (m *Tile_Value) GetUintValue() uint64 { _ = "STUB: not implemented"; return 0 }
 
-func (m *Tile_Value) GetSintValue() int64 {
-	if m != nil && m.SintValue != nil {
-		return *m.SintValue
-	}
-	return 0
-}
+func (m *Tile_Value) GetSintValue() int64 { _ = "STUB: not implemented"; return 0 }
 
-func (m *Tile_Value) GetBoolValue() bool {
-	if m != nil && m.BoolValue != nil {
-		return *m.BoolValue
-	}
-	return false
-}
+func (m *Tile_Value) GetBoolValue() bool { _ = "STUB: not implemented"; return false }
 
 type Tile_Feature struct {
 	Id *uint64 `protobuf:"varint,1,opt,name=id,def=0" json:"id,omitempty"`
@@ -278,69 +191,39 @@ type Tile_Feature struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Tile_Feature) Reset()         { *m = Tile_Feature{} }
-func (m *Tile_Feature) String() string { return proto.CompactTextString(m) }
-func (*Tile_Feature) ProtoMessage()    {}
-func (*Tile_Feature) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ca433dd0d9fb7008, []int{0, 1}
-}
-func (m *Tile_Feature) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
+func (m *Tile_Feature) Reset()                    { _ = "STUB: not implemented"; return }
+func (m *Tile_Feature) String() string            { _ = "STUB: not implemented"; return "" }
+func (*Tile_Feature) ProtoMessage()               { _ = "STUB: not implemented"; return }
+func (*Tile_Feature) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
+
+func (m *Tile_Feature) XXX_Unmarshal(b []byte) error { _ = "STUB: not implemented"; return nil }
+
 func (m *Tile_Feature) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_Tile_Feature.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
+	_ = "STUB: not implemented"
+	return nil, nil
 }
-func (m *Tile_Feature) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Tile_Feature.Merge(m, src)
-}
-func (m *Tile_Feature) XXX_Size() int {
-	return m.Size()
-}
-func (m *Tile_Feature) XXX_DiscardUnknown() {
-	xxx_messageInfo_Tile_Feature.DiscardUnknown(m)
-}
+
+func (m *Tile_Feature) XXX_Merge(src proto.Message) { _ = "STUB: not implemented"; return }
+
+func (m *Tile_Feature) XXX_Size() int { _ = "STUB: not implemented"; return 0 }
+
+func (m *Tile_Feature) XXX_DiscardUnknown() { _ = "STUB: not implemented"; return }
 
 var xxx_messageInfo_Tile_Feature proto.InternalMessageInfo
 
 const Default_Tile_Feature_Id uint64 = 0
 const Default_Tile_Feature_Type Tile_GeomType = Tile_UNKNOWN
 
-func (m *Tile_Feature) GetId() uint64 {
-	if m != nil && m.Id != nil {
-		return *m.Id
-	}
-	return Default_Tile_Feature_Id
-}
+func (m *Tile_Feature) GetId() uint64 { _ = "STUB: not implemented"; return 0 }
 
-func (m *Tile_Feature) GetTags() []uint32 {
-	if m != nil {
-		return m.Tags
-	}
-	return nil
-}
+func (m *Tile_Feature) GetTags() []uint32 { _ = "STUB: not implemented"; return nil }
 
 func (m *Tile_Feature) GetType() Tile_GeomType {
-	if m != nil && m.Type != nil {
-		return *m.Type
-	}
-	return Default_Tile_Feature_Type
+	_ = "STUB: not implemented"
+	return *new(Tile_GeomType)
 }
 
-func (m *Tile_Feature) GetGeometry() []uint32 {
-	if m != nil {
-		return m.Geometry
-	}
-	return nil
-}
+func (m *Tile_Feature) GetGeometry() []uint32 { _ = "STUB: not implemented"; return nil }
 
 type Tile_Layer struct {
 	// Any compliant implementation must first read the version
@@ -363,92 +246,49 @@ type Tile_Layer struct {
 	XXX_sizecache                int32  `json:"-"`
 }
 
-func (m *Tile_Layer) Reset()         { *m = Tile_Layer{} }
-func (m *Tile_Layer) String() string { return proto.CompactTextString(m) }
-func (*Tile_Layer) ProtoMessage()    {}
-func (*Tile_Layer) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ca433dd0d9fb7008, []int{0, 2}
-}
+func (m *Tile_Layer) Reset()                    { _ = "STUB: not implemented"; return }
+func (m *Tile_Layer) String() string            { _ = "STUB: not implemented"; return "" }
+func (*Tile_Layer) ProtoMessage()               { _ = "STUB: not implemented"; return }
+func (*Tile_Layer) Descriptor() ([]byte, []int) { _ = "STUB: not implemented"; return nil, nil }
 
 var extRange_Tile_Layer = []proto.ExtensionRange{
 	{Start: 16, End: 536870911},
 }
 
 func (*Tile_Layer) ExtensionRangeArray() []proto.ExtensionRange {
-	return extRange_Tile_Layer
+	_ = "STUB: not implemented"
+	return nil
 }
 
-func (m *Tile_Layer) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
+func (m *Tile_Layer) XXX_Unmarshal(b []byte) error { _ = "STUB: not implemented"; return nil }
+
 func (m *Tile_Layer) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_Tile_Layer.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
+	_ = "STUB: not implemented"
+	return nil, nil
 }
-func (m *Tile_Layer) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Tile_Layer.Merge(m, src)
-}
-func (m *Tile_Layer) XXX_Size() int {
-	return m.Size()
-}
-func (m *Tile_Layer) XXX_DiscardUnknown() {
-	xxx_messageInfo_Tile_Layer.DiscardUnknown(m)
-}
+
+func (m *Tile_Layer) XXX_Merge(src proto.Message) { _ = "STUB: not implemented"; return }
+
+func (m *Tile_Layer) XXX_Size() int { _ = "STUB: not implemented"; return 0 }
+
+func (m *Tile_Layer) XXX_DiscardUnknown() { _ = "STUB: not implemented"; return }
 
 var xxx_messageInfo_Tile_Layer proto.InternalMessageInfo
 
 const Default_Tile_Layer_Version uint32 = 1
 const Default_Tile_Layer_Extent uint32 = 4096
 
-func (m *Tile_Layer) GetVersion() uint32 {
-	if m != nil && m.Version != nil {
-		return *m.Version
-	}
-	return Default_Tile_Layer_Version
-}
+func (m *Tile_Layer) GetVersion() uint32 { _ = "STUB: not implemented"; return 0 }
 
-func (m *Tile_Layer) GetName() string {
-	if m != nil && m.Name != nil {
-		return *m.Name
-	}
-	return ""
-}
+func (m *Tile_Layer) GetName() string { _ = "STUB: not implemented"; return "" }
 
-func (m *Tile_Layer) GetFeatures() []*Tile_Feature {
-	if m != nil {
-		return m.Features
-	}
-	return nil
-}
+func (m *Tile_Layer) GetFeatures() []*Tile_Feature { _ = "STUB: not implemented"; return nil }
 
-func (m *Tile_Layer) GetKeys() []string {
-	if m != nil {
-		return m.Keys
-	}
-	return nil
-}
+func (m *Tile_Layer) GetKeys() []string { _ = "STUB: not implemented"; return nil }
 
-func (m *Tile_Layer) GetValues() []*Tile_Value {
-	if m != nil {
-		return m.Values
-	}
-	return nil
-}
+func (m *Tile_Layer) GetValues() []*Tile_Value { _ = "STUB: not implemented"; return nil }
 
-func (m *Tile_Layer) GetExtent() uint32 {
-	if m != nil && m.Extent != nil {
-		return *m.Extent
-	}
-	return Default_Tile_Layer_Extent
-}
+func (m *Tile_Layer) GetExtent() uint32 { _ = "STUB: not implemented"; return 0 }
 
 func init() {
 	proto.RegisterEnum("vector_tile.Tile_GeomType", Tile_GeomType_name, Tile_GeomType_value)
@@ -496,1358 +336,74 @@ var fileDescriptor_ca433dd0d9fb7008 = []byte{
 	0x00, 0x00,
 }
 
-func (m *Tile) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
+func (m *Tile) Marshal() (dAtA []byte, err error) { _ = "STUB: not implemented"; return nil, nil }
 
-func (m *Tile) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
+func (m *Tile) MarshalTo(dAtA []byte) (int, error) { _ = "STUB: not implemented"; return 0, nil }
 
 func (m *Tile) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	if n, err := github_com_gogo_protobuf_proto.EncodeInternalExtensionBackwards(m, dAtA[:i]); err != nil {
-		return 0, err
-	} else {
-		i -= n
-	}
-	if len(m.Layers) > 0 {
-		for iNdEx := len(m.Layers) - 1; iNdEx >= 0; iNdEx-- {
-			{
-				size, err := m.Layers[iNdEx].MarshalToSizedBuffer(dAtA[:i])
-				if err != nil {
-					return 0, err
-				}
-				i -= size
-				i = encodeVarintVectorTile(dAtA, i, uint64(size))
-			}
-			i--
-			dAtA[i] = 0x1a
-		}
-	}
-	return len(dAtA) - i, nil
+	_ = "STUB: not implemented"
+	return 0, nil
 }
 
-func (m *Tile_Value) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
+func (m *Tile_Value) Marshal() (dAtA []byte, err error) { _ = "STUB: not implemented"; return nil, nil }
 
-func (m *Tile_Value) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
+func (m *Tile_Value) MarshalTo(dAtA []byte) (int, error) { _ = "STUB: not implemented"; return 0, nil }
 
 func (m *Tile_Value) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	if n, err := github_com_gogo_protobuf_proto.EncodeInternalExtensionBackwards(m, dAtA[:i]); err != nil {
-		return 0, err
-	} else {
-		i -= n
-	}
-	if m.BoolValue != nil {
-		i--
-		if *m.BoolValue {
-			dAtA[i] = 1
-		} else {
-			dAtA[i] = 0
-		}
-		i--
-		dAtA[i] = 0x38
-	}
-	if m.SintValue != nil {
-		i = encodeVarintVectorTile(dAtA, i, uint64((uint64(*m.SintValue)<<1)^uint64((*m.SintValue>>63))))
-		i--
-		dAtA[i] = 0x30
-	}
-	if m.UintValue != nil {
-		i = encodeVarintVectorTile(dAtA, i, uint64(*m.UintValue))
-		i--
-		dAtA[i] = 0x28
-	}
-	if m.IntValue != nil {
-		i = encodeVarintVectorTile(dAtA, i, uint64(*m.IntValue))
-		i--
-		dAtA[i] = 0x20
-	}
-	if m.DoubleValue != nil {
-		i -= 8
-		encoding_binary.LittleEndian.PutUint64(dAtA[i:], uint64(math.Float64bits(float64(*m.DoubleValue))))
-		i--
-		dAtA[i] = 0x19
-	}
-	if m.FloatValue != nil {
-		i -= 4
-		encoding_binary.LittleEndian.PutUint32(dAtA[i:], uint32(math.Float32bits(float32(*m.FloatValue))))
-		i--
-		dAtA[i] = 0x15
-	}
-	if m.StringValue != nil {
-		i -= len(*m.StringValue)
-		copy(dAtA[i:], *m.StringValue)
-		i = encodeVarintVectorTile(dAtA, i, uint64(len(*m.StringValue)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
+	_ = "STUB: not implemented"
+	return 0, nil
 }
 
 func (m *Tile_Feature) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 func (m *Tile_Feature) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
+	_ = "STUB: not implemented"
+	return 0, nil
 }
 
 func (m *Tile_Feature) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	if len(m.Geometry) > 0 {
-		dAtA2 := make([]byte, len(m.Geometry)*10)
-		var j1 int
-		for _, num := range m.Geometry {
-			for num >= 1<<7 {
-				dAtA2[j1] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j1++
-			}
-			dAtA2[j1] = uint8(num)
-			j1++
-		}
-		i -= j1
-		copy(dAtA[i:], dAtA2[:j1])
-		i = encodeVarintVectorTile(dAtA, i, uint64(j1))
-		i--
-		dAtA[i] = 0x22
-	}
-	if m.Type != nil {
-		i = encodeVarintVectorTile(dAtA, i, uint64(*m.Type))
-		i--
-		dAtA[i] = 0x18
-	}
-	if len(m.Tags) > 0 {
-		dAtA4 := make([]byte, len(m.Tags)*10)
-		var j3 int
-		for _, num := range m.Tags {
-			for num >= 1<<7 {
-				dAtA4[j3] = uint8(uint64(num)&0x7f | 0x80)
-				num >>= 7
-				j3++
-			}
-			dAtA4[j3] = uint8(num)
-			j3++
-		}
-		i -= j3
-		copy(dAtA[i:], dAtA4[:j3])
-		i = encodeVarintVectorTile(dAtA, i, uint64(j3))
-		i--
-		dAtA[i] = 0x12
-	}
-	if m.Id != nil {
-		i = encodeVarintVectorTile(dAtA, i, uint64(*m.Id))
-		i--
-		dAtA[i] = 0x8
-	}
-	return len(dAtA) - i, nil
+	_ = "STUB: not implemented"
+	return 0, nil
 }
 
-func (m *Tile_Layer) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
+func (m *Tile_Layer) Marshal() (dAtA []byte, err error) { _ = "STUB: not implemented"; return nil, nil }
 
-func (m *Tile_Layer) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
+func (m *Tile_Layer) MarshalTo(dAtA []byte) (int, error) { _ = "STUB: not implemented"; return 0, nil }
 
 func (m *Tile_Layer) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.XXX_unrecognized != nil {
-		i -= len(m.XXX_unrecognized)
-		copy(dAtA[i:], m.XXX_unrecognized)
-	}
-	if n, err := github_com_gogo_protobuf_proto.EncodeInternalExtensionBackwards(m, dAtA[:i]); err != nil {
-		return 0, err
-	} else {
-		i -= n
-	}
-	if m.Version == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("version")
-	} else {
-		i = encodeVarintVectorTile(dAtA, i, uint64(*m.Version))
-		i--
-		dAtA[i] = 0x78
-	}
-	if m.Extent != nil {
-		i = encodeVarintVectorTile(dAtA, i, uint64(*m.Extent))
-		i--
-		dAtA[i] = 0x28
-	}
-	if len(m.Values) > 0 {
-		for iNdEx := len(m.Values) - 1; iNdEx >= 0; iNdEx-- {
-			{
-				size, err := m.Values[iNdEx].MarshalToSizedBuffer(dAtA[:i])
-				if err != nil {
-					return 0, err
-				}
-				i -= size
-				i = encodeVarintVectorTile(dAtA, i, uint64(size))
-			}
-			i--
-			dAtA[i] = 0x22
-		}
-	}
-	if len(m.Keys) > 0 {
-		for iNdEx := len(m.Keys) - 1; iNdEx >= 0; iNdEx-- {
-			i -= len(m.Keys[iNdEx])
-			copy(dAtA[i:], m.Keys[iNdEx])
-			i = encodeVarintVectorTile(dAtA, i, uint64(len(m.Keys[iNdEx])))
-			i--
-			dAtA[i] = 0x1a
-		}
-	}
-	if len(m.Features) > 0 {
-		for iNdEx := len(m.Features) - 1; iNdEx >= 0; iNdEx-- {
-			{
-				size, err := m.Features[iNdEx].MarshalToSizedBuffer(dAtA[:i])
-				if err != nil {
-					return 0, err
-				}
-				i -= size
-				i = encodeVarintVectorTile(dAtA, i, uint64(size))
-			}
-			i--
-			dAtA[i] = 0x12
-		}
-	}
-	if m.Name == nil {
-		return 0, github_com_gogo_protobuf_proto.NewRequiredNotSetError("name")
-	} else {
-		i -= len(*m.Name)
-		copy(dAtA[i:], *m.Name)
-		i = encodeVarintVectorTile(dAtA, i, uint64(len(*m.Name)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
+	_ = "STUB: not implemented"
+	return 0, nil
 }
 
 func encodeVarintVectorTile(dAtA []byte, offset int, v uint64) int {
-	offset -= sovVectorTile(v)
-	base := offset
-	for v >= 1<<7 {
-		dAtA[offset] = uint8(v&0x7f | 0x80)
-		v >>= 7
-		offset++
-	}
-	dAtA[offset] = uint8(v)
-	return base
-}
-func (m *Tile) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if len(m.Layers) > 0 {
-		for _, e := range m.Layers {
-			l = e.Size()
-			n += 1 + l + sovVectorTile(uint64(l))
-		}
-	}
-	n += github_com_gogo_protobuf_proto.SizeOfInternalExtension(m)
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
-	return n
+	_ = "STUB: not implemented"
+	return 0
 }
 
-func (m *Tile_Value) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if m.StringValue != nil {
-		l = len(*m.StringValue)
-		n += 1 + l + sovVectorTile(uint64(l))
-	}
-	if m.FloatValue != nil {
-		n += 5
-	}
-	if m.DoubleValue != nil {
-		n += 9
-	}
-	if m.IntValue != nil {
-		n += 1 + sovVectorTile(uint64(*m.IntValue))
-	}
-	if m.UintValue != nil {
-		n += 1 + sovVectorTile(uint64(*m.UintValue))
-	}
-	if m.SintValue != nil {
-		n += 1 + sozVectorTile(uint64(*m.SintValue))
-	}
-	if m.BoolValue != nil {
-		n += 2
-	}
-	n += github_com_gogo_protobuf_proto.SizeOfInternalExtension(m)
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
-	return n
-}
+func (m *Tile) Size() (n int) { _ = "STUB: not implemented"; return 0 }
 
-func (m *Tile_Feature) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if m.Id != nil {
-		n += 1 + sovVectorTile(uint64(*m.Id))
-	}
-	if len(m.Tags) > 0 {
-		l = 0
-		for _, e := range m.Tags {
-			l += sovVectorTile(uint64(e))
-		}
-		n += 1 + sovVectorTile(uint64(l)) + l
-	}
-	if m.Type != nil {
-		n += 1 + sovVectorTile(uint64(*m.Type))
-	}
-	if len(m.Geometry) > 0 {
-		l = 0
-		for _, e := range m.Geometry {
-			l += sovVectorTile(uint64(e))
-		}
-		n += 1 + sovVectorTile(uint64(l)) + l
-	}
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
-	return n
-}
+func (m *Tile_Value) Size() (n int) { _ = "STUB: not implemented"; return 0 }
 
-func (m *Tile_Layer) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if m.Name != nil {
-		l = len(*m.Name)
-		n += 1 + l + sovVectorTile(uint64(l))
-	}
-	if len(m.Features) > 0 {
-		for _, e := range m.Features {
-			l = e.Size()
-			n += 1 + l + sovVectorTile(uint64(l))
-		}
-	}
-	if len(m.Keys) > 0 {
-		for _, s := range m.Keys {
-			l = len(s)
-			n += 1 + l + sovVectorTile(uint64(l))
-		}
-	}
-	if len(m.Values) > 0 {
-		for _, e := range m.Values {
-			l = e.Size()
-			n += 1 + l + sovVectorTile(uint64(l))
-		}
-	}
-	if m.Extent != nil {
-		n += 1 + sovVectorTile(uint64(*m.Extent))
-	}
-	if m.Version != nil {
-		n += 1 + sovVectorTile(uint64(*m.Version))
-	}
-	n += github_com_gogo_protobuf_proto.SizeOfInternalExtension(m)
-	if m.XXX_unrecognized != nil {
-		n += len(m.XXX_unrecognized)
-	}
-	return n
-}
+func (m *Tile_Feature) Size() (n int) { _ = "STUB: not implemented"; return 0 }
 
-func sovVectorTile(x uint64) (n int) {
-	return (math_bits.Len64(x|1) + 6) / 7
-}
-func sozVectorTile(x uint64) (n int) {
-	return sovVectorTile(uint64((x << 1) ^ uint64((int64(x) >> 63))))
-}
-func (m *Tile) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowVectorTile
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: Tile: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: Tile: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 3:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Layers", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Layers = append(m.Layers, &Tile_Layer{})
-			if err := m.Layers[len(m.Layers)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		default:
-			if (fieldNum >= 16) && (fieldNum < 8192) {
-				var sizeOfWire int
-				for {
-					sizeOfWire++
-					wire >>= 7
-					if wire == 0 {
-						break
-					}
-				}
-				iNdEx -= sizeOfWire
-				skippy, err := skipVectorTile(dAtA[iNdEx:])
-				if err != nil {
-					return err
-				}
-				if skippy < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) > l {
-					return io.ErrUnexpectedEOF
-				}
-				github_com_gogo_protobuf_proto.AppendExtension(m, int32(fieldNum), dAtA[iNdEx:iNdEx+skippy])
-				iNdEx += skippy
-			} else {
-				iNdEx = preIndex
-				skippy, err := skipVectorTile(dAtA[iNdEx:])
-				if err != nil {
-					return err
-				}
-				if skippy < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) > l {
-					return io.ErrUnexpectedEOF
-				}
-				m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
-				iNdEx += skippy
-			}
-		}
-	}
+func (m *Tile_Layer) Size() (n int) { _ = "STUB: not implemented"; return 0 }
 
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *Tile_Value) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowVectorTile
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: Value: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: Value: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field StringValue", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			s := string(dAtA[iNdEx:postIndex])
-			m.StringValue = &s
-			iNdEx = postIndex
-		case 2:
-			if wireType != 5 {
-				return fmt.Errorf("proto: wrong wireType = %d for field FloatValue", wireType)
-			}
-			var v uint32
-			if (iNdEx + 4) > l {
-				return io.ErrUnexpectedEOF
-			}
-			v = uint32(encoding_binary.LittleEndian.Uint32(dAtA[iNdEx:]))
-			iNdEx += 4
-			v2 := float32(math.Float32frombits(v))
-			m.FloatValue = &v2
-		case 3:
-			if wireType != 1 {
-				return fmt.Errorf("proto: wrong wireType = %d for field DoubleValue", wireType)
-			}
-			var v uint64
-			if (iNdEx + 8) > l {
-				return io.ErrUnexpectedEOF
-			}
-			v = uint64(encoding_binary.LittleEndian.Uint64(dAtA[iNdEx:]))
-			iNdEx += 8
-			v2 := float64(math.Float64frombits(v))
-			m.DoubleValue = &v2
-		case 4:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field IntValue", wireType)
-			}
-			var v int64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= int64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.IntValue = &v
-		case 5:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field UintValue", wireType)
-			}
-			var v uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.UintValue = &v
-		case 6:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field SintValue", wireType)
-			}
-			var v uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			v = (v >> 1) ^ uint64((int64(v&1)<<63)>>63)
-			v2 := int64(v)
-			m.SintValue = &v2
-		case 7:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field BoolValue", wireType)
-			}
-			var v int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			b := bool(v != 0)
-			m.BoolValue = &b
-		default:
-			if (fieldNum >= 8) && (fieldNum < 536870912) {
-				var sizeOfWire int
-				for {
-					sizeOfWire++
-					wire >>= 7
-					if wire == 0 {
-						break
-					}
-				}
-				iNdEx -= sizeOfWire
-				skippy, err := skipVectorTile(dAtA[iNdEx:])
-				if err != nil {
-					return err
-				}
-				if skippy < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) > l {
-					return io.ErrUnexpectedEOF
-				}
-				github_com_gogo_protobuf_proto.AppendExtension(m, int32(fieldNum), dAtA[iNdEx:iNdEx+skippy])
-				iNdEx += skippy
-			} else {
-				iNdEx = preIndex
-				skippy, err := skipVectorTile(dAtA[iNdEx:])
-				if err != nil {
-					return err
-				}
-				if skippy < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) > l {
-					return io.ErrUnexpectedEOF
-				}
-				m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
-				iNdEx += skippy
-			}
-		}
-	}
+func sovVectorTile(x uint64) (n int) { _ = "STUB: not implemented"; return 0 }
 
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *Tile_Feature) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowVectorTile
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: Feature: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: Feature: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
-			}
-			var v uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.Id = &v
-		case 2:
-			if wireType == 0 {
-				var v uint32
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return ErrIntOverflowVectorTile
-					}
-					if iNdEx >= l {
-						return io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					v |= uint32(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				m.Tags = append(m.Tags, v)
-			} else if wireType == 2 {
-				var packedLen int
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return ErrIntOverflowVectorTile
-					}
-					if iNdEx >= l {
-						return io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					packedLen |= int(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				if packedLen < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				postIndex := iNdEx + packedLen
-				if postIndex < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if postIndex > l {
-					return io.ErrUnexpectedEOF
-				}
-				var elementCount int
-				var count int
-				for _, integer := range dAtA[iNdEx:postIndex] {
-					if integer < 128 {
-						count++
-					}
-				}
-				elementCount = count
-				if elementCount != 0 && len(m.Tags) == 0 {
-					m.Tags = make([]uint32, 0, elementCount)
-				}
-				for iNdEx < postIndex {
-					var v uint32
-					for shift := uint(0); ; shift += 7 {
-						if shift >= 64 {
-							return ErrIntOverflowVectorTile
-						}
-						if iNdEx >= l {
-							return io.ErrUnexpectedEOF
-						}
-						b := dAtA[iNdEx]
-						iNdEx++
-						v |= uint32(b&0x7F) << shift
-						if b < 0x80 {
-							break
-						}
-					}
-					m.Tags = append(m.Tags, v)
-				}
-			} else {
-				return fmt.Errorf("proto: wrong wireType = %d for field Tags", wireType)
-			}
-		case 3:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Type", wireType)
-			}
-			var v Tile_GeomType
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= Tile_GeomType(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.Type = &v
-		case 4:
-			if wireType == 0 {
-				var v uint32
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return ErrIntOverflowVectorTile
-					}
-					if iNdEx >= l {
-						return io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					v |= uint32(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				m.Geometry = append(m.Geometry, v)
-			} else if wireType == 2 {
-				var packedLen int
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return ErrIntOverflowVectorTile
-					}
-					if iNdEx >= l {
-						return io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					packedLen |= int(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				if packedLen < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				postIndex := iNdEx + packedLen
-				if postIndex < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if postIndex > l {
-					return io.ErrUnexpectedEOF
-				}
-				var elementCount int
-				var count int
-				for _, integer := range dAtA[iNdEx:postIndex] {
-					if integer < 128 {
-						count++
-					}
-				}
-				elementCount = count
-				if elementCount != 0 && len(m.Geometry) == 0 {
-					m.Geometry = make([]uint32, 0, elementCount)
-				}
-				for iNdEx < postIndex {
-					var v uint32
-					for shift := uint(0); ; shift += 7 {
-						if shift >= 64 {
-							return ErrIntOverflowVectorTile
-						}
-						if iNdEx >= l {
-							return io.ErrUnexpectedEOF
-						}
-						b := dAtA[iNdEx]
-						iNdEx++
-						v |= uint32(b&0x7F) << shift
-						if b < 0x80 {
-							break
-						}
-					}
-					m.Geometry = append(m.Geometry, v)
-				}
-			} else {
-				return fmt.Errorf("proto: wrong wireType = %d for field Geometry", wireType)
-			}
-		default:
-			iNdEx = preIndex
-			skippy, err := skipVectorTile(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			if (iNdEx + skippy) < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
-			iNdEx += skippy
-		}
-	}
+func sozVectorTile(x uint64) (n int) { _ = "STUB: not implemented"; return 0 }
 
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *Tile_Layer) Unmarshal(dAtA []byte) error {
-	var hasFields [1]uint64
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowVectorTile
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: Layer: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: Layer: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Name", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			s := string(dAtA[iNdEx:postIndex])
-			m.Name = &s
-			iNdEx = postIndex
-			hasFields[0] |= uint64(0x00000001)
-		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Features", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Features = append(m.Features, &Tile_Feature{})
-			if err := m.Features[len(m.Features)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		case 3:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Keys", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Keys = append(m.Keys, string(dAtA[iNdEx:postIndex]))
-			iNdEx = postIndex
-		case 4:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Values", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthVectorTile
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Values = append(m.Values, &Tile_Value{})
-			if err := m.Values[len(m.Values)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		case 5:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Extent", wireType)
-			}
-			var v uint32
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= uint32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.Extent = &v
-		case 15:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Version", wireType)
-			}
-			var v uint32
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= uint32(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.Version = &v
-			hasFields[0] |= uint64(0x00000002)
-		default:
-			if (fieldNum >= 16) && (fieldNum < 536870912) {
-				var sizeOfWire int
-				for {
-					sizeOfWire++
-					wire >>= 7
-					if wire == 0 {
-						break
-					}
-				}
-				iNdEx -= sizeOfWire
-				skippy, err := skipVectorTile(dAtA[iNdEx:])
-				if err != nil {
-					return err
-				}
-				if skippy < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) > l {
-					return io.ErrUnexpectedEOF
-				}
-				github_com_gogo_protobuf_proto.AppendExtension(m, int32(fieldNum), dAtA[iNdEx:iNdEx+skippy])
-				iNdEx += skippy
-			} else {
-				iNdEx = preIndex
-				skippy, err := skipVectorTile(dAtA[iNdEx:])
-				if err != nil {
-					return err
-				}
-				if skippy < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) < 0 {
-					return ErrInvalidLengthVectorTile
-				}
-				if (iNdEx + skippy) > l {
-					return io.ErrUnexpectedEOF
-				}
-				m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
-				iNdEx += skippy
-			}
-		}
-	}
-	if hasFields[0]&uint64(0x00000001) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("name")
-	}
-	if hasFields[0]&uint64(0x00000002) == 0 {
-		return github_com_gogo_protobuf_proto.NewRequiredNotSetError("version")
-	}
+func (m *Tile) Unmarshal(dAtA []byte) error { _ = "STUB: not implemented"; return nil }
 
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func skipVectorTile(dAtA []byte) (n int, err error) {
-	l := len(dAtA)
-	iNdEx := 0
-	depth := 0
-	for iNdEx < l {
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return 0, ErrIntOverflowVectorTile
-			}
-			if iNdEx >= l {
-				return 0, io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		wireType := int(wire & 0x7)
-		switch wireType {
-		case 0:
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return 0, ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return 0, io.ErrUnexpectedEOF
-				}
-				iNdEx++
-				if dAtA[iNdEx-1] < 0x80 {
-					break
-				}
-			}
-		case 1:
-			iNdEx += 8
-		case 2:
-			var length int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return 0, ErrIntOverflowVectorTile
-				}
-				if iNdEx >= l {
-					return 0, io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				length |= (int(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if length < 0 {
-				return 0, ErrInvalidLengthVectorTile
-			}
-			iNdEx += length
-		case 3:
-			depth++
-		case 4:
-			if depth == 0 {
-				return 0, ErrUnexpectedEndOfGroupVectorTile
-			}
-			depth--
-		case 5:
-			iNdEx += 4
-		default:
-			return 0, fmt.Errorf("proto: illegal wireType %d", wireType)
-		}
-		if iNdEx < 0 {
-			return 0, ErrInvalidLengthVectorTile
-		}
-		if depth == 0 {
-			return iNdEx, nil
-		}
-	}
-	return 0, io.ErrUnexpectedEOF
-}
+func (m *Tile_Value) Unmarshal(dAtA []byte) error { _ = "STUB: not implemented"; return nil }
+
+func (m *Tile_Feature) Unmarshal(dAtA []byte) error { _ = "STUB: not implemented"; return nil }
+
+func (m *Tile_Layer) Unmarshal(dAtA []byte) error { _ = "STUB: not implemented"; return nil }
+
+func skipVectorTile(dAtA []byte) (n int, err error) { _ = "STUB: not implemented"; return 0, nil }
 
 var (
 	ErrInvalidLengthVectorTile        = fmt.Errorf("proto: negative length found during unmarshaling")

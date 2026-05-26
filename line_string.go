@@ -4,42 +4,25 @@ package orb
 type LineString []Point
 
 // GeoJSONType returns the GeoJSON type for the object.
-func (ls LineString) GeoJSONType() string {
-	return "LineString"
-}
+func (ls LineString) GeoJSONType() string { _ = "STUB: not implemented"; return "" }
 
 // Dimensions returns 1 because a LineString is a 1d object.
 func (ls LineString) Dimensions() int {
-	return 1
+	_ = "STUB: not implemented"
+
+	// Reverse will reverse the line string.
+	// This is done inplace, ie. it modifies the original data.
+	return 0
 }
 
-// Reverse will reverse the line string.
-// This is done inplace, ie. it modifies the original data.
-func (ls LineString) Reverse() {
-	l := len(ls) - 1
-
-	if l < 1 {
-		return
-	}
-
-	for i := 0; i <= l/2; i++ {
-		ls[i], ls[l-i] = ls[l-i], ls[i]
-	}
-}
+func (ls LineString) Reverse() { _ = "STUB: not implemented"; return }
 
 // Bound returns a rect around the line string. Uses rectangular coordinates.
-func (ls LineString) Bound() Bound {
-	return MultiPoint(ls).Bound()
-}
+func (ls LineString) Bound() Bound { _ = "STUB: not implemented"; return *new(Bound) }
 
 // Equal compares two line strings. Returns true if lengths are the same
 // and all points are Equal.
-func (ls LineString) Equal(lineString LineString) bool {
-	return MultiPoint(ls).Equal(MultiPoint(lineString))
-}
+func (ls LineString) Equal(lineString LineString) bool { _ = "STUB: not implemented"; return false }
 
 // Clone returns a new copy of the line string.
-func (ls LineString) Clone() LineString {
-	ps := MultiPoint(ls)
-	return LineString(ps.Clone())
-}
+func (ls LineString) Clone() LineString { _ = "STUB: not implemented"; return *new(LineString) }

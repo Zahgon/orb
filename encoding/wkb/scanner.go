@@ -5,7 +5,6 @@ import (
 	"database/sql/driver"
 
 	"github.com/paulmach/orb"
-	"github.com/paulmach/orb/encoding/internal/wkbcommon"
 )
 
 var (
@@ -59,44 +58,14 @@ type GeometryScanner struct {
 // first 4 bytes and try again. This works for most use cases.
 //
 // For supported behavior see `ewkb.ScannerPrefixSRID`
-func Scanner(g any) *GeometryScanner {
-	return &GeometryScanner{g: g}
-}
+func Scanner(g any) *GeometryScanner { _ = "STUB: not implemented"; return nil }
 
 // Scan will scan the input []byte data into a geometry.
 // This could be into the orb geometry type pointer or, if nil,
 // the scanner.Geometry attribute.
-func (s *GeometryScanner) Scan(d any) error {
-	if d == nil {
-		return nil
-	}
+func (s *GeometryScanner) Scan(d any) error { _ = "STUB: not implemented"; return nil }
 
-	data, ok := d.([]byte)
-	if !ok {
-		return ErrUnsupportedDataType
-	}
-
-	s.Geometry = nil
-	s.Valid = false
-
-	g, _, valid, err := wkbcommon.Scan(s.g, d)
-	if err == wkbcommon.ErrNotWKBHeader {
-		var e error
-		g, _, valid, e = wkbcommon.Scan(s.g, data[4:])
-		if e != wkbcommon.ErrNotWKBHeader {
-			err = e // nil or incorrect type, e.g. decoding line string
-		}
-	}
-
-	if err != nil {
-		return mapCommonError(err)
-	}
-
-	s.Geometry = g
-	s.Valid = valid
-
-	return nil
-}
+// nil or incorrect type, e.g. decoding line string
 
 type value struct {
 	v orb.Geometry
@@ -104,15 +73,9 @@ type value struct {
 
 // Value will create a driver.Valuer that will WKB the geometry
 // into the database query.
-func Value(g orb.Geometry) driver.Valuer {
-	return value{v: g}
-
-}
+func Value(g orb.Geometry) driver.Valuer { _ = "STUB: not implemented"; return *new(driver.Valuer) }
 
 func (v value) Value() (driver.Value, error) {
-	val, err := Marshal(v.v)
-	if val == nil {
-		return nil, err
-	}
-	return val, err
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }

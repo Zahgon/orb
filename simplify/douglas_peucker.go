@@ -2,7 +2,6 @@ package simplify
 
 import (
 	"github.com/paulmach/orb"
-	"github.com/paulmach/orb/planar"
 )
 
 var _ orb.Simplifier = &DouglasPeuckerSimplifier{}
@@ -14,106 +13,70 @@ type DouglasPeuckerSimplifier struct {
 
 // DouglasPeucker creates a new DouglasPeuckerSimplifier.
 func DouglasPeucker(threshold float64) *DouglasPeuckerSimplifier {
-	return &DouglasPeuckerSimplifier{
-		Threshold: threshold,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 func (s *DouglasPeuckerSimplifier) simplify(ls orb.LineString, area, wim bool) (orb.LineString, []int) {
-	mask := make([]byte, len(ls))
-	mask[0] = 1
-	mask[len(mask)-1] = 1
-
-	found := dpWorker(ls, s.Threshold, mask)
-	var indexMap []int
-	if wim {
-		indexMap = make([]int, 0, found)
-	}
-
-	count := 0
-	for i, v := range mask {
-		if v == 1 {
-			ls[count] = ls[i]
-			count++
-			if wim {
-				indexMap = append(indexMap, i)
-			}
-		}
-	}
-
-	return ls[:count], indexMap
+	_ = "STUB: not implemented"
+	return *new(orb.LineString), nil
 }
 
 // dpWorker does the recursive threshold checks.
 // Using a stack array with a stackLength variable resulted in
 // 4x speed improvement over calling the function recursively.
 func dpWorker(ls orb.LineString, threshold float64, mask []byte) int {
-	found := 2
-
-	var stack []int
-	stack = append(stack, 0, len(ls)-1)
-
-	for len(stack) > 0 {
-		start := stack[len(stack)-2]
-		end := stack[len(stack)-1]
-
-		// modify the line in place
-		maxDist := 0.0
-		maxIndex := 0
-
-		for i := start + 1; i < end; i++ {
-			dist := planar.DistanceFromSegmentSquared(ls[start], ls[end], ls[i])
-			if dist > maxDist {
-				maxDist = dist
-				maxIndex = i
-			}
-		}
-
-		if maxDist > threshold*threshold {
-			found++
-			mask[maxIndex] = 1
-
-			stack[len(stack)-1] = maxIndex
-			stack = append(stack, maxIndex, end)
-		} else {
-			stack = stack[:len(stack)-2]
-		}
-	}
-
-	return found
+	_ = "STUB: not implemented"
+	return 0
 }
+
+// modify the line in place
 
 // Simplify will run the simplification for any geometry type.
 func (s *DouglasPeuckerSimplifier) Simplify(g orb.Geometry) orb.Geometry {
-	return simplify(s, g)
+	_ = "STUB: not implemented"
+	return *
+
+	// LineString will simplify the linestring using this simplifier.
+	new(orb.Geometry)
 }
 
-// LineString will simplify the linestring using this simplifier.
 func (s *DouglasPeuckerSimplifier) LineString(ls orb.LineString) orb.LineString {
-	return lineString(s, ls)
+	_ = "STUB: not implemented"
+	return *
+
+	// MultiLineString will simplify the multi-linestring using this simplifier.
+	new(orb.LineString)
 }
 
-// MultiLineString will simplify the multi-linestring using this simplifier.
 func (s *DouglasPeuckerSimplifier) MultiLineString(mls orb.MultiLineString) orb.MultiLineString {
-	return multiLineString(s, mls)
+	_ = "STUB: not implemented"
+	return *new(orb.MultiLineString)
 }
 
 // Ring will simplify the ring using this simplifier.
 func (s *DouglasPeuckerSimplifier) Ring(r orb.Ring) orb.Ring {
-	return ring(s, r)
+	_ = "STUB: not implemented"
+
+	// Polygon will simplify the polygon using this simplifier.
+	return *new(orb.Ring)
 }
 
-// Polygon will simplify the polygon using this simplifier.
 func (s *DouglasPeuckerSimplifier) Polygon(p orb.Polygon) orb.Polygon {
-	return polygon(s, p)
+	_ = "STUB: not implemented"
+	return *
+
+	// MultiPolygon will simplify the multi-polygon using this simplifier.
+	new(orb.Polygon)
 }
 
-// MultiPolygon will simplify the multi-polygon using this simplifier.
 func (s *DouglasPeuckerSimplifier) MultiPolygon(mp orb.MultiPolygon) orb.MultiPolygon {
-	return multiPolygon(s, mp)
+	_ = "STUB: not implemented"
+	return *new(orb.MultiPolygon)
 }
 
 // Collection will simplify the collection using this simplifier.
 func (s *DouglasPeuckerSimplifier) Collection(c orb.Collection) orb.Collection {
-	return collection(s, c)
+	_ = "STUB: not implemented"
+	return *new(orb.Collection)
 }

@@ -25,19 +25,23 @@ var (
 	_ Geometry = Collection{}
 )
 
-func (p Point) private()             {}
-func (mp MultiPoint) private()       {}
-func (ls LineString) private()       {}
-func (mls MultiLineString) private() {}
-func (r Ring) private()              {}
-func (p Polygon) private()           {}
-func (mp MultiPolygon) private()     {}
-func (b Bound) private()             {}
-func (c Collection) private()        {}
+func (p Point) private()             { _ = "STUB: not implemented"; return }
+func (mp MultiPoint) private()       { _ = "STUB: not implemented"; return }
+func (ls LineString) private()       { _ = "STUB: not implemented"; return }
+func (mls MultiLineString) private() { _ = "STUB: not implemented"; return }
+func (r Ring) private()              { _ = "STUB: not implemented"; return }
+func (p Polygon) private()           { _ = "STUB: not implemented"; return }
+func (mp MultiPolygon) private()     { _ = "STUB: not implemented"; return }
+func (b Bound) private()             { _ = "STUB: not implemented"; return }
+func (c Collection) private() {
+	_ = "STUB: not implemented"
 
-// AllGeometries lists all possible types and values that a geometry
-// interface can be. It should be used only for testing to verify
-// functions that accept a Geometry will work in all cases.
+	// AllGeometries lists all possible types and values that a geometry
+	// interface can be. It should be used only for testing to verify
+	// functions that accept a Geometry will work in all cases.
+	return
+}
+
 var AllGeometries = []Geometry{
 	nil,
 	Point{},
@@ -67,80 +71,17 @@ var AllGeometries = []Geometry{
 type Collection []Geometry
 
 // GeoJSONType returns the geometry collection type.
-func (c Collection) GeoJSONType() string {
-	return "GeometryCollection"
-}
+func (c Collection) GeoJSONType() string { _ = "STUB: not implemented"; return "" }
 
 // Dimensions returns the max of the dimensions of the collection.
-func (c Collection) Dimensions() int {
-	max := -1
-	for _, g := range c {
-		if d := g.Dimensions(); d > max {
-			max = d
-		}
-	}
-
-	return max
-}
+func (c Collection) Dimensions() int { _ = "STUB: not implemented"; return 0 }
 
 // Bound returns the bounding box of all the Geometries combined.
-func (c Collection) Bound() Bound {
-	if len(c) == 0 {
-		return emptyBound
-	}
-
-	var b Bound
-	start := -1
-
-	for i, g := range c {
-		if g != nil {
-			start = i
-			b = g.Bound()
-			break
-		}
-	}
-
-	if start == -1 {
-		return emptyBound
-	}
-
-	for i := start + 1; i < len(c); i++ {
-		if c[i] == nil {
-			continue
-		}
-
-		b = b.Union(c[i].Bound())
-	}
-
-	return b
-}
+func (c Collection) Bound() Bound { _ = "STUB: not implemented"; return *new(Bound) }
 
 // Equal compares two collections. Returns true if lengths are the same
 // and all the sub geometries are the same and in the same order.
-func (c Collection) Equal(collection Collection) bool {
-	if len(c) != len(collection) {
-		return false
-	}
-
-	for i, g := range c {
-		if !Equal(g, collection[i]) {
-			return false
-		}
-	}
-
-	return true
-}
+func (c Collection) Equal(collection Collection) bool { _ = "STUB: not implemented"; return false }
 
 // Clone returns a deep copy of the collection.
-func (c Collection) Clone() Collection {
-	if c == nil {
-		return nil
-	}
-
-	nc := make(Collection, len(c))
-	for i, g := range c {
-		nc[i] = Clone(g)
-	}
-
-	return nc
-}
+func (c Collection) Clone() Collection { _ = "STUB: not implemented"; return *new(Collection) }

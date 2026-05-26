@@ -3,10 +3,8 @@ package ewkb
 import (
 	"database/sql"
 	"database/sql/driver"
-	"encoding/binary"
 
 	"github.com/paulmach/orb"
-	"github.com/paulmach/orb/encoding/internal/wkbcommon"
 )
 
 var (
@@ -56,9 +54,7 @@ type GeometryScanner struct {
 //	} else {
 //	  // NULL value
 //	}
-func Scanner(g any) *GeometryScanner {
-	return &GeometryScanner{g: g}
-}
+func Scanner(g any) *GeometryScanner { _ = "STUB: not implemented"; return nil }
 
 // ScannerPrefixSRID will scan ewkb data were the SRID is in the first 4 bytes of the data.
 // Databases like mysql/mariadb use this as their raw format. This method should only be used when
@@ -75,56 +71,12 @@ func Scanner(g any) *GeometryScanner {
 //		Scan(&srid, wkb.Scanner(&p))
 //
 // https://dev.mysql.com/doc/refman/5.7/en/gis-data-formats.html
-func ScannerPrefixSRID(g any) *GeometryScanner {
-	return &GeometryScanner{sridInPrefix: true, g: g}
-}
+func ScannerPrefixSRID(g any) *GeometryScanner { _ = "STUB: not implemented"; return nil }
 
 // Scan will scan the input []byte data into a geometry.
 // This could be into the orb geometry type pointer or, if nil,
 // the scanner.Geometry attribute.
-func (s *GeometryScanner) Scan(d any) error {
-	s.Geometry = nil
-	s.Valid = false
-
-	var (
-		srid int
-		data any
-	)
-
-	data = d
-	if s.sridInPrefix {
-		raw, ok := d.([]byte)
-		if !ok {
-			return ErrUnsupportedDataType
-		}
-
-		if raw == nil {
-			return nil
-		}
-
-		if len(raw) < 5 {
-			return ErrNotEWKB
-		}
-
-		srid = int(binary.LittleEndian.Uint32(raw))
-		data = raw[4:]
-	}
-
-	g, embeddedSRID, valid, err := wkbcommon.Scan(s.g, data)
-	if err != nil {
-		return mapCommonError(err)
-	}
-
-	if embeddedSRID != 0 {
-		srid = embeddedSRID
-	}
-
-	s.Geometry = g
-	s.SRID = srid
-	s.Valid = valid
-
-	return nil
-}
+func (s *GeometryScanner) Scan(d any) error { _ = "STUB: not implemented"; return nil }
 
 type value struct {
 	srid int
@@ -135,15 +87,13 @@ type value struct {
 //
 //	db.Exec("INSERT INTO table (point_column) VALUES (?)", ewkb.Value(p, 4326))
 func Value(g orb.Geometry, srid int) driver.Valuer {
-	return value{srid: srid, v: g}
+	_ = "STUB: not implemented"
+	return *new(driver.Valuer)
 }
 
 func (v value) Value() (driver.Value, error) {
-	val, err := Marshal(v.v, v.srid)
-	if val == nil {
-		return nil, err
-	}
-	return val, err
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }
 
 type valuePrefixSRID struct {
@@ -156,20 +106,11 @@ type valuePrefixSRID struct {
 //
 //	db.Exec("INSERT INTO table (point_column) VALUES (?)", ewkb.Value(p, 4326))
 func ValuePrefixSRID(g orb.Geometry, srid int) driver.Valuer {
-	return valuePrefixSRID{srid: srid, v: g}
+	_ = "STUB: not implemented"
+	return *new(driver.Valuer)
 }
 
 func (v valuePrefixSRID) Value() (driver.Value, error) {
-	val, err := Marshal(v.v, 0)
-	if val == nil {
-		return nil, err
-	}
-
-	if err != nil {
-		return nil, err
-	}
-
-	data := make([]byte, 4, 4+len(val))
-	binary.LittleEndian.PutUint32(data, uint32(v.srid))
-	return append(data, val...), nil
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }

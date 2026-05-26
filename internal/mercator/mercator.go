@@ -1,7 +1,5 @@
 package mercator
 
-import "math"
-
 // for testing
 var (
 	Epsilon = 1e-6
@@ -28,31 +26,13 @@ var (
 
 // ToPlanar converts the point to geo world coordinates at the given live.
 func ToPlanar(lng, lat float64, level uint32) (x, y float64) {
-	maxtiles := float64(uint64(1 << level))
-	x = (lng/360.0 + 0.5) * maxtiles
-
-	// bound it because we have a top of the world problem
-	siny := math.Sin(lat * math.Pi / 180.0)
-
-	if siny < -0.9999 {
-		y = 0
-	} else if siny > 0.9999 {
-		y = maxtiles - 1
-	} else {
-		lat = 0.5 + 0.5*math.Log((1.0+siny)/(1.0-siny))/(-2*math.Pi)
-		y = lat * maxtiles
-	}
-
-	return
+	_ = "STUB: not implemented"
+	return 0, 0
 }
+
+// bound it because we have a top of the world problem
 
 // ToGeo projects world coordinates back to geo coordinates.
-func ToGeo(x, y float64, level uint32) (lng, lat float64) {
-	maxtiles := float64(uint64(1 << level))
+func ToGeo(x, y float64, level uint32) (lng, lat float64) { _ = "STUB: not implemented"; return 0, 0 }
 
-	lng = 360.0 * (x/maxtiles - 0.5)
-	// Adding + 0.0 ensures arm64 returns precise floats; see https://github.com/paulmach/orb/issues/156.
-	lat = 2.0*math.Atan(math.Exp(math.Pi-(2*math.Pi)*(y/maxtiles)))*(180.0/math.Pi) + 0.0 - 90.0
-
-	return lng, lat
-}
+// Adding + 0.0 ensures arm64 returns precise floats; see https://github.com/paulmach/orb/issues/156.

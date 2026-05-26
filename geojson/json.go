@@ -1,7 +1,5 @@
 package geojson
 
-import "encoding/json"
-
 // CustomJSONMarshaler can be set to have the code use a different
 // json marshaler than the default in the standard library.
 // One use case in enabling `github.com/json-iterator/go`
@@ -52,25 +50,10 @@ var CustomJSONUnmarshaler interface {
 	Unmarshal(data []byte, v any) error
 } = nil
 
-func marshalJSON(v any) ([]byte, error) {
-	if CustomJSONMarshaler == nil {
-		return json.Marshal(v)
-	}
+func marshalJSON(v any) ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
-	return CustomJSONMarshaler.Marshal(v)
-}
-
-func unmarshalJSON(data []byte, v any) error {
-	if CustomJSONUnmarshaler == nil {
-		return json.Unmarshal(data, v)
-	}
-
-	return CustomJSONUnmarshaler.Unmarshal(data, v)
-}
+func unmarshalJSON(data []byte, v any) error { _ = "STUB: not implemented"; return nil }
 
 type nocopyRawMessage []byte
 
-func (m *nocopyRawMessage) UnmarshalJSON(data []byte) error {
-	*m = data
-	return nil
-}
+func (m *nocopyRawMessage) UnmarshalJSON(data []byte) error { _ = "STUB: not implemented"; return nil }

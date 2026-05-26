@@ -7,45 +7,59 @@ var _ Pointer = Point{}
 
 // GeoJSONType returns the GeoJSON type for the object.
 func (p Point) GeoJSONType() string {
-	return "Point"
+	_ = "STUB: not implemented"
+
+	// Dimensions returns 0 because a point is a 0d object.
+	return ""
 }
 
-// Dimensions returns 0 because a point is a 0d object.
 func (p Point) Dimensions() int {
+	_ = "STUB: not implemented"
+
+	// Bound returns a single point bound of the point.
 	return 0
 }
 
-// Bound returns a single point bound of the point.
 func (p Point) Bound() Bound {
-	return Bound{p, p}
+	_ = "STUB: not implemented"
+
+	// Point returns itself so it implements the Pointer interface.
+	return *new(Bound)
 }
 
-// Point returns itself so it implements the Pointer interface.
 func (p Point) Point() Point {
-	return p
+	_ = "STUB: not implemented"
+
+	// Y returns the vertical coordinate of the point.
+	return *new(Point)
 }
 
-// Y returns the vertical coordinate of the point.
 func (p Point) Y() float64 {
-	return p[1]
+	_ = "STUB: not implemented"
+
+	// X returns the horizontal coordinate of the point.
+	return 0
 }
 
-// X returns the horizontal coordinate of the point.
 func (p Point) X() float64 {
-	return p[0]
+	_ = "STUB: not implemented"
+
+	// Lat returns the vertical, latitude coordinate of the point.
+	return 0
 }
 
-// Lat returns the vertical, latitude coordinate of the point.
 func (p Point) Lat() float64 {
-	return p[1]
+	_ = "STUB: not implemented"
+
+	// Lon returns the horizontal, longitude coordinate of the point.
+	return 0
 }
 
-// Lon returns the horizontal, longitude coordinate of the point.
 func (p Point) Lon() float64 {
-	return p[0]
+	_ = "STUB: not implemented"
+
+	// Equal checks if the point represents the same point or vector.
+	return 0
 }
 
-// Equal checks if the point represents the same point or vector.
-func (p Point) Equal(point Point) bool {
-	return p[0] == point[0] && p[1] == point[1]
-}
+func (p Point) Equal(point Point) bool { _ = "STUB: not implemented"; return false }
